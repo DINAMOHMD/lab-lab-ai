@@ -187,9 +187,6 @@ then you have to install the multibals liberaris to ensure that the system work 
 
 
 
-🚀 About Me
-
-I'm a full stack ML & DL developer
 
 🔗 Links
 
