@@ -171,6 +171,22 @@ Zero One Loss Value :  1
 
 ```
 
+
+## Embedded System 
+
+to make sure that the hardware system you have to connect the I/O pins as shwone in the Embedded_System_Code file 
+then you have to install the multibals liberaris to ensure that the system work smothly
+
+### liberaris needs to installed:
+
+* mpu6050-master
+* SoftwareSerial.h
+* DHT sensor library
+
+**Note** don't forget to add a phone number that is attached in the sever.
+
+
+
 🚀 About Me
 
 I'm a full stack ML & DL developer
