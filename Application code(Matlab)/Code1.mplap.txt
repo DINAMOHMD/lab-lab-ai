@@ -1,0 +1,2073 @@
+classdef app1 < matlab.apps.AppBase
+
+    % Properties that correspond to app components
+    properties (Access = public)
+        ChaseTheFireUIFigure           matlab.ui.Figure
+        FileMenu                       matlab.ui.container.Menu
+        NewMenu                        matlab.ui.container.Menu
+        MapMenu                        matlab.ui.container.Menu
+        ValuesMenu                     matlab.ui.container.Menu
+        SheetMenu                      matlab.ui.container.Menu
+        OpenMenu                       matlab.ui.container.Menu
+        sheetMenu                      matlab.ui.container.Menu
+        projectMenu                    matlab.ui.container.Menu
+        SaveMenu                       matlab.ui.container.Menu
+        SaveAsMenu                     matlab.ui.container.Menu
+        PrintMenu                      matlab.ui.container.Menu
+        ExitMenu                       matlab.ui.container.Menu
+        EditMenu                       matlab.ui.container.Menu
+        UndoMenu                       matlab.ui.container.Menu
+        RedoMenu                       matlab.ui.container.Menu
+        ClearAllMenu                   matlab.ui.container.Menu
+        CopyMenu                       matlab.ui.container.Menu
+        CutMenu                        matlab.ui.container.Menu
+        PasteMenu                      matlab.ui.container.Menu
+        RandomeDataMenu                matlab.ui.container.Menu
+        Sample1Menu                    matlab.ui.container.Menu
+        Sample2Menu                    matlab.ui.container.Menu
+        Sample3Menu                    matlab.ui.container.Menu
+        ViewMenu                       matlab.ui.container.Menu
+        ShowStatusBarMenu              matlab.ui.container.Menu
+        ShowMapMenu                    matlab.ui.container.Menu
+        ShowtoolStripsMenu             matlab.ui.container.Menu
+        ShowCFMenu                     matlab.ui.container.Menu
+        ShowROCMenu                    matlab.ui.container.Menu
+        ShowDataRegMenu                matlab.ui.container.Menu
+        FullScreenMenu                 matlab.ui.container.Menu
+        HideStatusBarMenu              matlab.ui.container.Menu
+        HideMapMenu                    matlab.ui.container.Menu
+        HideToolstripMenu              matlab.ui.container.Menu
+        ControlsMenu                   matlab.ui.container.Menu
+        SetMonthMenu                   matlab.ui.container.Menu
+        janMenu                        matlab.ui.container.Menu
+        febMenu                        matlab.ui.container.Menu
+        marMenu                        matlab.ui.container.Menu
+        aprMenu                        matlab.ui.container.Menu
+        mayMenu                        matlab.ui.container.Menu
+        junMenu                        matlab.ui.container.Menu
+        julMenu                        matlab.ui.container.Menu
+        augMenu                        matlab.ui.container.Menu
+        sapMenu                        matlab.ui.container.Menu
+        octMenu                        matlab.ui.container.Menu
+        novMenu                        matlab.ui.container.Menu
+        decMenu                        matlab.ui.container.Menu
+        SetDayMenu                     matlab.ui.container.Menu
+        sunMenu                        matlab.ui.container.Menu
+        monMenu                        matlab.ui.container.Menu
+        tueMenu                        matlab.ui.container.Menu
+        wedMenu                        matlab.ui.container.Menu
+        thuMenu                        matlab.ui.container.Menu
+        friMenu                        matlab.ui.container.Menu
+        satMenu                        matlab.ui.container.Menu
+        ShowMenu                       matlab.ui.container.Menu
+        CFMenu                         matlab.ui.container.Menu
+        ROCMenu                        matlab.ui.container.Menu
+        DataRegMenu                    matlab.ui.container.Menu
+        HelpMenu                       matlab.ui.container.Menu
+        ChassersHelpMenu               matlab.ui.container.Menu
+        KeyboardShortcutsMenu          matlab.ui.container.Menu
+        ApplicationUserGideMenu        matlab.ui.container.Menu
+        NextUpdateMenu                 matlab.ui.container.Menu
+        AboutUsMenu                    matlab.ui.container.Menu
+        chasethefire_1                 matlab.ui.container.Panel
+        Panel_6                        matlab.ui.container.Panel
+        GridLayout                     matlab.ui.container.GridLayout
+        CoordinatesLabel               matlab.ui.control.Label
+        EnvironmentLabel               matlab.ui.control.Label
+        PannelFunctionLabel            matlab.ui.control.Label
+        FireAreaPredictionLabel        matlab.ui.control.Label
+        SomeFactorsLabel               matlab.ui.control.Label
+        periodDateLabel                matlab.ui.control.Label
+        Panel_2                        matlab.ui.container.Panel
+        xedit                          matlab.ui.control.EditField
+        XLabel                         matlab.ui.control.Label
+        xl                             matlab.ui.control.Label
+        YLabel                         matlab.ui.control.Label
+        yedit                          matlab.ui.control.EditField
+        yl                             matlab.ui.control.Label
+        Label_2                        matlab.ui.control.Label
+        Panel_5                        matlab.ui.container.Panel
+        Label_7                        matlab.ui.control.Label
+        Label_8                        matlab.ui.control.Label
+        Label_9                        matlab.ui.control.Label
+        TempEditField_2Label           matlab.ui.control.Label
+        tempedit                       matlab.ui.control.EditField
+        tl                             matlab.ui.control.Label
+        rhl                            matlab.ui.control.Label
+        RHEditField_2Label             matlab.ui.control.Label
+        rhedit                         matlab.ui.control.EditField
+        wl                             matlab.ui.control.Label
+        WindEditField_3Label           matlab.ui.control.Label
+        windedit                       matlab.ui.control.EditField
+        rl                             matlab.ui.control.Label
+        RainEditField_2Label           matlab.ui.control.Label
+        rainedit                       matlab.ui.control.EditField
+        ShowFigureLabel                matlab.ui.control.Label
+        ButtonGroup                    matlab.ui.container.ButtonGroup
+        sl                             matlab.ui.control.Label
+        dddp                           matlab.ui.control.DropDown
+        Button                         matlab.ui.control.Button
+        Panel_4                        matlab.ui.container.Panel
+        ml                             matlab.ui.control.Label
+        dl                             matlab.ui.control.Label
+        Label_4                        matlab.ui.control.Label
+        mdd                            matlab.ui.control.DropDown
+        ddd                            matlab.ui.control.DropDown
+        MonthLabel                     matlab.ui.control.Label
+        DayLabel                       matlab.ui.control.Label
+        Panel_3                        matlab.ui.container.Panel
+        Label_3                        matlab.ui.control.Label
+        Label_5                        matlab.ui.control.Label
+        Label_6                        matlab.ui.control.Label
+        FFMCEditFieldLabel             matlab.ui.control.Label
+        ffmcedit                       matlab.ui.control.EditField
+        fl                             matlab.ui.control.Label
+        dml                            matlab.ui.control.Label
+        DMCEditField_2Label            matlab.ui.control.Label
+        dmcedit                        matlab.ui.control.EditField
+        dcl                            matlab.ui.control.Label
+        DCLabel                        matlab.ui.control.Label
+        dcedit                         matlab.ui.control.EditField
+        il                             matlab.ui.control.Label
+        ISILabel                       matlab.ui.control.Label
+        isiedit                        matlab.ui.control.EditField
+        PredictButton                  matlab.ui.control.StateButton
+        arealabel                      matlab.ui.control.Label
+        areafinal                      matlab.ui.control.EditField
+        areadet                        matlab.ui.control.Label
+        mapl                           matlab.ui.control.Label
+        MapsButton                     matlab.ui.control.StateButton
+        UIAxes                         matlab.ui.control.UIAxes
+        TypeFirePerdictionButton       matlab.ui.control.StateButton
+        chasethefire_2                 matlab.ui.container.Panel
+        PredictButton_2                matlab.ui.control.StateButton
+        arealabel_2                    matlab.ui.control.Label
+        Image2                         matlab.ui.control.Image
+        areafinal_2                    matlab.ui.control.EditField
+        FlipFireAreaPredictionButton   matlab.ui.control.StateButton
+        Panel_7                        matlab.ui.container.Panel
+        GridLayout_2                   matlab.ui.container.GridLayout
+        SomeFactorsLabel_3             matlab.ui.control.Label
+        PannelFunctionLabel_2          matlab.ui.control.Label
+        TypeFirePerdictionLabel        matlab.ui.control.Label
+        TemperatureLabel               matlab.ui.control.Label
+        Panel_8                        matlab.ui.container.Panel
+        Label_13                       matlab.ui.control.Label
+        BrightnessLabel                matlab.ui.control.Label
+        briedit2                       matlab.ui.control.EditField
+        fl_2                           matlab.ui.control.Label
+        dml_2                          matlab.ui.control.Label
+        Bright_T31Label                matlab.ui.control.Label
+        briedit3                       matlab.ui.control.EditField
+        briedit2_2                     matlab.ui.control.EditField
+        fl_3                           matlab.ui.control.Label
+        bright_t31Label                matlab.ui.control.Label
+        Panel_10                       matlab.ui.container.Panel
+        Label_16                       matlab.ui.control.Label
+        Label_17                       matlab.ui.control.Label
+        Label_18                       matlab.ui.control.Label
+        ScanLabel                      matlab.ui.control.Label
+        scanedit                       matlab.ui.control.EditField
+        tl_2                           matlab.ui.control.Label
+        rhl_2                          matlab.ui.control.Label
+        TrackLabel                     matlab.ui.control.Label
+        trackedit                      matlab.ui.control.EditField
+        wl_2                           matlab.ui.control.Label
+        ConfidenceLabel                matlab.ui.control.Label
+        conedit                        matlab.ui.control.EditField
+        rl_2                           matlab.ui.control.Label
+        FRPLabel                       matlab.ui.control.Label
+        frpedit                        matlab.ui.control.EditField
+        ShowFigureLabel_2              matlab.ui.control.Label
+        ButtonGroup_2                  matlab.ui.container.ButtonGroup
+        xl_4                           matlab.ui.control.Label
+        ddd_4                          matlab.ui.control.DropDown
+        Button_2                       matlab.ui.control.Button
+        DimensionsLabel                matlab.ui.control.Label
+        Panel_12                       matlab.ui.container.Panel
+        latedit                        matlab.ui.control.EditField
+        LatitudeLabel                  matlab.ui.control.Label
+        xl_3                           matlab.ui.control.Label
+        LongitudeLabel                 matlab.ui.control.Label
+        laonedit                       matlab.ui.control.EditField
+        Label_20                       matlab.ui.control.Label
+        MoreDetailsLabel               matlab.ui.control.Label
+        Panel_9                        matlab.ui.container.Panel
+        SatelliteLabel                 matlab.ui.control.Label
+        xl_2                           matlab.ui.control.Label
+        Label_15                       matlab.ui.control.Label
+        sdd                            matlab.ui.control.DropDown
+        timedit                        matlab.ui.control.EditField
+        AcqTimeLabel_2                 matlab.ui.control.Label
+        DayNightLabel                  matlab.ui.control.Label
+        tdd                            matlab.ui.control.DropDown
+        StatusBarLabel                 matlab.ui.control.Label
+        ChasersAllRightsReservedLabel  matlab.ui.control.Label
+        DateLabel                      matlab.ui.control.Label
+        Label_10                       matlab.ui.control.Label
+        Image                          matlab.ui.control.Image
+    end
+
+    % Callbacks that handle component events
+    methods (Access = private)
+
+        % Code that executes after component creation
+        function startupFcn(app)
+            IM = imread('site.png')
+            imshow(IM,'Parent',app.UIAxes);
+        end
+
+        % Value changed function: MapsButton
+        function MapsButtonValueChanged(app, event)
+            value = app.MapsButton.Value;
+            %map_buttun
+            global image_src;
+            switch value
+                case 1
+                    IM = imread('maps.png')
+                    imshow(IM,'Parent',app.UIAxes);
+                    app.MapsButton.Icon = 'site.png';
+                    app.MapsButton.Text = 'Satellite'
+                case 0
+                IM = imread('site.png')
+                imshow(IM,'Parent',app.UIAxes);
+                app.MapsButton.Icon = 'maps.png';
+                app.MapsButton.Text = 'Maps'
+            end
+            
+        end
+
+        % Value changed function: PredictButton
+        function PredictButtonValueChanged(app, event)
+            value = app.PredictButton.Value;
+            switch value
+                case 1
+                    %ALL CODE
+                    app.areafinal.Visible = true;
+                    app.areadet.Visible = true;
+                    app.xedit.Enable = false;
+                    app.yedit.Enable = false;
+                    app.mdd.Enable = false;
+                    app.ddd.Enable = false;
+                    app.ffmcedit.Enable = false;
+                    app.dmcedit.Enable = false;
+                    app.dcedit.Enable = false;
+                    app.isiedit.Enable = false;
+                    app.tempedit.Enable = false;
+                    app.rhedit.Enable = false;
+                    app.windedit.Enable = false;
+                    app.rainedit.Enable = false;
+                    app.PredictButton.Text = "New Sheet"
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                    %COORDINATES
+                        X = str2double(app.xedit.Value);
+                        Y = str2double(app.yedit.Value);
+                    %PERIOD DATE
+                        month = "jan" ;
+                        day = "sun" ;
+                        switch(app.mdd.Value)
+                            case 'jan'
+                                month = "jan";
+                            case 'feb'
+                                month = "feb";
+                            case 'mar'
+                                month = "mar";
+                            case 'apr'
+                                month = "apr";
+                            case 'may'
+                                month = "may";
+                            case 'jun'
+                                month = "jun";
+                            case 'jul'
+                                month = "jul";
+                            case 'aug'
+                                month = "aug";
+                            case 'sep'
+                                month = "sep";
+                            case 'oct'
+                                month = "oct";
+                            case 'nov'
+                                month = "nov";
+                            case 'dec'
+                                month = "dec";
+                            otherwise
+                                month = "jan";
+                        end
+                        
+                        switch(app.ddd.Value)
+                            case 'sun'
+                                day = "sun";
+                            case 'mon'
+                                day = "mon";
+                            case 'tue'
+                                day = "tue";
+                            case 'wed'
+                                day = "wed";
+                            case 'thu'
+                                day = "thu";
+                            case 'fri'
+                                day = "fri";
+                            case 'sat'
+                                day = "sat";
+                            otherwise
+                                day = "sun";
+                        end
+                       
+                    %SOME FACTORS
+                        FFMC = str2double(app.ffmcedit.Value);
+                        DMC = str2double(app.dmcedit.Value);
+                        DC = str2double(app.dcedit.Value);
+                        ISI = str2double(app.isiedit.Value);
+                    %ENVIRONMENT
+                        temp = str2double(app.tempedit.Value);
+                        RH = str2double(app.rhedit.Value);
+                        wind = str2double(app.windedit.Value);
+                        rain = str2double(app.rainedit.Value);
+                    %RESULTS
+                    area = 0;
+                    Fire = 0;
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                  
+                    
+                    load 'matlab2.mat';
+                    T2 = table(X, Y, month, day, FFMC, DMC, DC, ISI, temp, RH, wind, rain, Fire);
+                    yfit2 = RFClass.predictFcn(T2) 
+                    
+                    
+                    load 'matlab.mat';
+                    T = table(X, Y, month, day, FFMC, DMC, DC, ISI, temp, RH, wind, rain, area);
+                    yfit = RF.predictFcn(T)
+                    
+                    
+                            
+                    
+                    if ~yfit2
+                        app.areafinal.Value = '0'
+                    else
+                       yy = sprintf('%.4f',yfit)
+                       app.areafinal.Value = yy;
+                       X =int16(X)
+                       Y =int16(Y) 
+                       yfit5 = int16(yfit);
+                       plot(app.UIAxes,X, Y, '.r', 'MarkerSize',yfit5);
+            
+                       
+                    end
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                case 0
+                    %
+                    app.areafinal.Value = '?'
+                    app.xedit.Enable = true;
+                    app.yedit.Enable = true;
+                    app.mdd.Enable = true;
+                    app.ddd.Enable = true;
+                    app.ffmcedit.Enable = true;
+                    app.dmcedit.Enable = true;
+                    app.dcedit.Enable = true;
+                    app.isiedit.Enable = true;
+                    app.tempedit.Enable = true;
+                    app.rhedit.Enable = true;
+                    app.windedit.Enable = true;
+                    app.rainedit.Enable = true;
+                    app.PredictButton.Text = "Predict"
+                case 0
+            end
+        end
+
+        % Menu selected function: Sample1Menu
+        function Sample1MenuSelected(app, event)
+             app.xedit.Value = '80';
+             app.yedit.Value = '100';
+             app.mdd.Value = 'sep';
+             app.ddd.Value = 'sun';
+             app.ffmcedit.Value = '93.5';
+             app.dmcedit.Value = '149.3';
+             app.dcedit.Value = '728.6';
+             app.isiedit.Value = '8.1';
+             app.tempedit.Value = '22.9';
+             app.rhedit.Value = '39';
+             app.windedit.Value = '4.9';
+             app.rainedit.Value = '0';
+        end
+
+        % Menu selected function: Sample2Menu
+        function Sample2MenuSelected(app, event)
+             app.xedit.Value = '100';
+             app.yedit.Value = '60';
+             app.mdd.Value = 'aug';
+             app.ddd.Value = 'sun';
+             app.ffmcedit.Value = '91.4';
+             app.dmcedit.Value = '142.4';
+             app.dcedit.Value = '601.4';
+             app.isiedit.Value = '10.6';
+             app.tempedit.Value = '19.6';
+             app.rhedit.Value = '41';
+             app.windedit.Value = '5.8';
+             app.rainedit.Value = '0';
+        end
+
+        % Menu selected function: Sample3Menu
+        function Sample3MenuSelected(app, event)
+            app.xedit.Value = '300';
+             app.yedit.Value = '200';
+             app.mdd.Value = 'sep';
+             app.ddd.Value = 'sat';
+             app.ffmcedit.Value = '92.5';
+             app.dmcedit.Value = '121.1';
+             app.dcedit.Value = '674.4';
+             app.isiedit.Value = '8.6';
+             app.tempedit.Value = '25.1';
+             app.rhedit.Value = '27';
+             app.windedit.Value = '4';
+             app.rainedit.Value = '0';
+        end
+
+        % Button pushed function: Button
+        function ButtonPushed(app, event)
+            switch(app.dddp.Value)
+                case 'CF'
+                    cf;
+                case 'ROC'
+                    roc;
+                case 'DataReg'
+                    DataReg;
+            end
+        end
+
+        % Value changed function: PredictButton_2
+        function PredictButton_2ValueChanged(app, event)
+            value = app.PredictButton_2.Value;
+            
+            latitude = str2double(app.latedit.Value)
+            longitude = str2double(app.laonedit.Value)
+            brightness = str2double(app.briedit2.Value)
+            scan = str2double(app.scanedit.Value)
+            track = str2double(app.trackedit.Value)
+            acq_time = str2double(app.timedit.Value)
+            
+            switch(app.sdd.Value)
+                case 'Terra'
+                    satellite= "Terra"
+                case 'Aqua'
+                    satellite = "Aqua"
+            end
+            instrument = "DOMIS"
+            confidence = str2double(app.conedit.Value)
+            version = "6.03"
+            bright_t31 = str2double(app.briedit3.Value)
+            frp = str2double(app.frpedit.Value)
+            switch(app.tdd.Value)
+                case 'Day'
+                    daynight = "D"
+                case 'Night'
+                    daynight = "N"
+            end
+            type = 10;
+            
+            
+             load 'matlab3.mat';
+             %'latitude', 'longitude', 'brightness', 'scan', 'track', 'acq_time', 'satellite', 'instrument', 'confidence', 'version', 'bright_t31', 'frp', 'daynight'
+                    T3 = table(latitude, longitude, brightness, scan,track, acq_time, satellite, instrument, confidence, version, bright_t31, frp, daynight, type);
+                    yyfit = trainedModel.predictFcn(T3);
+                    
+                    app.areafinal_2.Value = type;
+                    
+            
+        end
+
+        % Callback function
+        function sp1ValueChanged(app, event)
+            value = app.sp1.Value
+           
+           
+        end
+
+        % Value changed function: TypeFirePerdictionButton
+        function TypeFirePerdictionButtonValueChanged(app, event)
+        app.TypeFirePerdictionButton.Text = 'Please Wait ...'
+            app.FlipFireAreaPredictionButton.Text = 'FireAreaPredictionButton'
+            value = app.TypeFirePerdictionButton.Value;
+            app.chasethefire_2.Visible = true;
+            app.chasethefire_1.Visible = false;
+            
+        end
+
+        % Value changed function: FlipFireAreaPredictionButton
+        function FlipFireAreaPredictionButtonValueChanged(app, event)
+        app.FlipFireAreaPredictionButton.Text = 'Please Wait ...'
+            app.TypeFirePerdictionButton.Text = 'TypeFirePerdictionButton'
+            value = app.FlipFireAreaPredictionButton.Value;
+            app.chasethefire_1.Visible = true;
+            app.chasethefire_2.Visible = false;
+            
+        end
+    end
+
+    % Component initialization
+    methods (Access = private)
+
+        % Create UIFigure and components
+        function createComponents(app)
+
+            % Create ChaseTheFireUIFigure and hide until all components are created
+            app.ChaseTheFireUIFigure = uifigure('Visible', 'off');
+            app.ChaseTheFireUIFigure.AutoResizeChildren = 'off';
+            app.ChaseTheFireUIFigure.Color = [1 1 1];
+            app.ChaseTheFireUIFigure.Colormap = [0.2431 0.149 0.6588;0.251 0.1647 0.7059;0.2588 0.1804 0.7529;0 1 0;0.2706 0.2157 0.8353;0.2745 0.2353 0.8706;0.2784 0.2549 0.898;0.2784 0.2784 0.9216;0.2824 0.302 0.9412;0.2824 0.3216 0.9569;0.2784 0.3451 0.9725;0.2745 0.3686 0.9843;0.2706 0.3882 0.9922;0.2588 0.4118 0.9961;0.2431 0.4353 1;0.2196 0.4588 0.9961;0.1961 0.4863 0.9882;0.1843 0.5059 0.9804;0.1804 0.5294 0.9686;0.1765 0.549 0.9529;0.1686 0.5686 0.9373;0.1529 0.5922 0.9216;0.1451 0.6078 0.9098;0.1373 0.6275 0.898;0.1255 0.6471 0.8902;0.1098 0.6627 0.8745;0.0941 0.6784 0.8588;0.0706 0.6941 0.8392;0.0314 0.7098 0.8157;0.0039 0.7216 0.7922;0.0078 0.7294 0.7647;0.0431 0.7412 0.7412;0.098 0.749 0.7137;0.1412 0.7569 0.6824;0.1725 0.7686 0.6549;0.1922 0.7765 0.6235;0.2157 0.7843 0.5922;0.2471 0.7922 0.5569;0.2902 0.7961 0.5176;0.3412 0.8 0.4784;0.3922 0.8039 0.4353;0.4471 0.8039 0.3922;0.5059 0.8 0.349;0.5608 0.7961 0.3059;0.6157 0.7882 0.2627;0.6706 0.7804 0.2235;0.7255 0.7686 0.1922;0.7725 0.7608 0.1647;0.8196 0.749 0.1529;0.8627 0.7412 0.1608;0.902 0.7333 0.1765;0.9412 0.7294 0.2118;0.9725 0.7294 0.2392;0.9961 0.7451 0.2353;0.9961 0.7647 0.2196;0.9961 0.7882 0.2039;0.9882 0.8118 0.1882;0.9804 0.8392 0.1765;0.9686 0.8627 0.1647;0.9608 0.8902 0.1529;0.9608 0.9137 0.1412;0.9647 0.9373 0.1255;0.9686 0.9608 0.1059;0.9765 0.9843 0.0824];
+            app.ChaseTheFireUIFigure.Position = [2 50 2276 795];
+            app.ChaseTheFireUIFigure.Name = 'Chase The Fire';
+            app.ChaseTheFireUIFigure.Resize = 'off';
+            app.ChaseTheFireUIFigure.Interruptible = 'off';
+
+            % Create FileMenu
+            app.FileMenu = uimenu(app.ChaseTheFireUIFigure);
+            app.FileMenu.Tooltip = {'File'};
+            app.FileMenu.Text = 'File';
+
+            % Create NewMenu
+            app.NewMenu = uimenu(app.FileMenu);
+            app.NewMenu.Text = 'New';
+
+            % Create MapMenu
+            app.MapMenu = uimenu(app.NewMenu);
+            app.MapMenu.Accelerator = '1';
+            app.MapMenu.Text = 'Map';
+
+            % Create ValuesMenu
+            app.ValuesMenu = uimenu(app.NewMenu);
+            app.ValuesMenu.Accelerator = '2';
+            app.ValuesMenu.Text = 'Values';
+
+            % Create SheetMenu
+            app.SheetMenu = uimenu(app.NewMenu);
+            app.SheetMenu.Accelerator = '3';
+            app.SheetMenu.Text = 'Sheet';
+
+            % Create OpenMenu
+            app.OpenMenu = uimenu(app.FileMenu);
+            app.OpenMenu.Separator = 'on';
+            app.OpenMenu.Text = 'Open';
+
+            % Create sheetMenu
+            app.sheetMenu = uimenu(app.OpenMenu);
+            app.sheetMenu.Accelerator = 'o';
+            app.sheetMenu.Text = 'sheet';
+
+            % Create projectMenu
+            app.projectMenu = uimenu(app.OpenMenu);
+            app.projectMenu.Accelerator = 'k';
+            app.projectMenu.Text = 'project';
+
+            % Create SaveMenu
+            app.SaveMenu = uimenu(app.FileMenu);
+            app.SaveMenu.Separator = 'on';
+            app.SaveMenu.Accelerator = 's';
+            app.SaveMenu.Text = 'Save';
+
+            % Create SaveAsMenu
+            app.SaveAsMenu = uimenu(app.FileMenu);
+            app.SaveAsMenu.Accelerator = 'a';
+            app.SaveAsMenu.Text = 'Save As';
+
+            % Create PrintMenu
+            app.PrintMenu = uimenu(app.FileMenu);
+            app.PrintMenu.Separator = 'on';
+            app.PrintMenu.Accelerator = 'p';
+            app.PrintMenu.Text = 'Print';
+
+            % Create ExitMenu
+            app.ExitMenu = uimenu(app.FileMenu);
+            app.ExitMenu.Separator = 'on';
+            app.ExitMenu.Accelerator = 'e';
+            app.ExitMenu.Text = 'Exit';
+
+            % Create EditMenu
+            app.EditMenu = uimenu(app.ChaseTheFireUIFigure);
+            app.EditMenu.Tooltip = {'Edit'};
+            app.EditMenu.Text = 'Edit';
+
+            % Create UndoMenu
+            app.UndoMenu = uimenu(app.EditMenu);
+            app.UndoMenu.Accelerator = 'z';
+            app.UndoMenu.Text = 'Undo';
+
+            % Create RedoMenu
+            app.RedoMenu = uimenu(app.EditMenu);
+            app.RedoMenu.Accelerator = 'y';
+            app.RedoMenu.Text = 'Redo';
+
+            % Create ClearAllMenu
+            app.ClearAllMenu = uimenu(app.EditMenu);
+            app.ClearAllMenu.Separator = 'on';
+            app.ClearAllMenu.Accelerator = 'd';
+            app.ClearAllMenu.Text = 'Clear All';
+
+            % Create CopyMenu
+            app.CopyMenu = uimenu(app.EditMenu);
+            app.CopyMenu.Separator = 'on';
+            app.CopyMenu.Accelerator = 'c';
+            app.CopyMenu.Text = 'Copy';
+
+            % Create CutMenu
+            app.CutMenu = uimenu(app.EditMenu);
+            app.CutMenu.Accelerator = 'x';
+            app.CutMenu.Text = 'Cut';
+
+            % Create PasteMenu
+            app.PasteMenu = uimenu(app.EditMenu);
+            app.PasteMenu.Accelerator = 'v';
+            app.PasteMenu.Text = 'Paste';
+
+            % Create RandomeDataMenu
+            app.RandomeDataMenu = uimenu(app.EditMenu);
+            app.RandomeDataMenu.Separator = 'on';
+            app.RandomeDataMenu.Accelerator = 'r';
+            app.RandomeDataMenu.Text = 'Randome Data';
+
+            % Create Sample1Menu
+            app.Sample1Menu = uimenu(app.RandomeDataMenu);
+            app.Sample1Menu.MenuSelectedFcn = createCallbackFcn(app, @Sample1MenuSelected, true);
+            app.Sample1Menu.Text = 'Sample1';
+
+            % Create Sample2Menu
+            app.Sample2Menu = uimenu(app.RandomeDataMenu);
+            app.Sample2Menu.MenuSelectedFcn = createCallbackFcn(app, @Sample2MenuSelected, true);
+            app.Sample2Menu.Text = 'Sample2';
+
+            % Create Sample3Menu
+            app.Sample3Menu = uimenu(app.RandomeDataMenu);
+            app.Sample3Menu.MenuSelectedFcn = createCallbackFcn(app, @Sample3MenuSelected, true);
+            app.Sample3Menu.Text = 'Sample3';
+
+            % Create ViewMenu
+            app.ViewMenu = uimenu(app.ChaseTheFireUIFigure);
+            app.ViewMenu.Tooltip = {'View'};
+            app.ViewMenu.Text = 'View';
+
+            % Create ShowStatusBarMenu
+            app.ShowStatusBarMenu = uimenu(app.ViewMenu);
+            app.ShowStatusBarMenu.Tooltip = {'Show Status Bar'};
+            app.ShowStatusBarMenu.Text = 'Show Status Bar';
+
+            % Create ShowMapMenu
+            app.ShowMapMenu = uimenu(app.ViewMenu);
+            app.ShowMapMenu.Tooltip = {'Show Status Bar'};
+            app.ShowMapMenu.Text = 'Show Map';
+
+            % Create ShowtoolStripsMenu
+            app.ShowtoolStripsMenu = uimenu(app.ViewMenu);
+            app.ShowtoolStripsMenu.Tooltip = {'Show toolStrips'};
+            app.ShowtoolStripsMenu.Text = 'Show toolStrips';
+
+            % Create ShowCFMenu
+            app.ShowCFMenu = uimenu(app.ViewMenu);
+            app.ShowCFMenu.Tooltip = {'Show CF'};
+            app.ShowCFMenu.Separator = 'on';
+            app.ShowCFMenu.Text = 'Show CF';
+
+            % Create ShowROCMenu
+            app.ShowROCMenu = uimenu(app.ViewMenu);
+            app.ShowROCMenu.Tooltip = {'Show ROC'};
+            app.ShowROCMenu.Text = 'Show ROC';
+
+            % Create ShowDataRegMenu
+            app.ShowDataRegMenu = uimenu(app.ViewMenu);
+            app.ShowDataRegMenu.Tooltip = {'Show DataReg'};
+            app.ShowDataRegMenu.Text = 'Show DataReg';
+
+            % Create FullScreenMenu
+            app.FullScreenMenu = uimenu(app.ViewMenu);
+            app.FullScreenMenu.Tooltip = {'Full Screen'};
+            app.FullScreenMenu.Separator = 'on';
+            app.FullScreenMenu.Accelerator = 'f';
+            app.FullScreenMenu.Text = 'Full Screen';
+
+            % Create HideStatusBarMenu
+            app.HideStatusBarMenu = uimenu(app.ViewMenu);
+            app.HideStatusBarMenu.Tooltip = {'Hide Status Bar'};
+            app.HideStatusBarMenu.Separator = 'on';
+            app.HideStatusBarMenu.Text = 'Hide Status Bar';
+
+            % Create HideMapMenu
+            app.HideMapMenu = uimenu(app.ViewMenu);
+            app.HideMapMenu.Tooltip = {'Hide Map'};
+            app.HideMapMenu.Text = 'Hide Map';
+
+            % Create HideToolstripMenu
+            app.HideToolstripMenu = uimenu(app.ViewMenu);
+            app.HideToolstripMenu.Tooltip = {'Hide Toolstrip'};
+            app.HideToolstripMenu.Text = 'Hide Toolstrip';
+
+            % Create ControlsMenu
+            app.ControlsMenu = uimenu(app.ChaseTheFireUIFigure);
+            app.ControlsMenu.Tooltip = {'Controls'};
+            app.ControlsMenu.Text = 'Controls';
+
+            % Create SetMonthMenu
+            app.SetMonthMenu = uimenu(app.ControlsMenu);
+            app.SetMonthMenu.Text = 'Set Month';
+
+            % Create janMenu
+            app.janMenu = uimenu(app.SetMonthMenu);
+            app.janMenu.Tooltip = {'1st Month'};
+            app.janMenu.Text = 'jan';
+
+            % Create febMenu
+            app.febMenu = uimenu(app.SetMonthMenu);
+            app.febMenu.Tooltip = {'2nd Month'};
+            app.febMenu.Text = 'feb';
+
+            % Create marMenu
+            app.marMenu = uimenu(app.SetMonthMenu);
+            app.marMenu.Tooltip = {'3rd Month'};
+            app.marMenu.Text = 'mar';
+
+            % Create aprMenu
+            app.aprMenu = uimenu(app.SetMonthMenu);
+            app.aprMenu.Tooltip = {'4th Month'};
+            app.aprMenu.Text = 'apr';
+
+            % Create mayMenu
+            app.mayMenu = uimenu(app.SetMonthMenu);
+            app.mayMenu.Tooltip = {'5th Month'};
+            app.mayMenu.Text = 'may';
+
+            % Create junMenu
+            app.junMenu = uimenu(app.SetMonthMenu);
+            app.junMenu.Tooltip = {'6th Month'};
+            app.junMenu.Text = 'jun';
+
+            % Create julMenu
+            app.julMenu = uimenu(app.SetMonthMenu);
+            app.julMenu.Tooltip = {'7th Month'};
+            app.julMenu.Text = 'jul';
+
+            % Create augMenu
+            app.augMenu = uimenu(app.SetMonthMenu);
+            app.augMenu.Tooltip = {'8th Month'};
+            app.augMenu.Text = 'aug';
+
+            % Create sapMenu
+            app.sapMenu = uimenu(app.SetMonthMenu);
+            app.sapMenu.Tooltip = {'9th Month'};
+            app.sapMenu.Text = 'sap';
+
+            % Create octMenu
+            app.octMenu = uimenu(app.SetMonthMenu);
+            app.octMenu.Tooltip = {'10th Month'};
+            app.octMenu.Text = 'oct';
+
+            % Create novMenu
+            app.novMenu = uimenu(app.SetMonthMenu);
+            app.novMenu.Tooltip = {'11th Month'};
+            app.novMenu.Text = 'nov';
+
+            % Create decMenu
+            app.decMenu = uimenu(app.SetMonthMenu);
+            app.decMenu.Tooltip = {'12th Month'};
+            app.decMenu.Text = 'dec';
+
+            % Create SetDayMenu
+            app.SetDayMenu = uimenu(app.ControlsMenu);
+            app.SetDayMenu.Text = 'Set Day';
+
+            % Create sunMenu
+            app.sunMenu = uimenu(app.SetDayMenu);
+            app.sunMenu.Tooltip = {'1st Day'};
+            app.sunMenu.Text = 'sun';
+
+            % Create monMenu
+            app.monMenu = uimenu(app.SetDayMenu);
+            app.monMenu.Tooltip = {'2nd  Day'};
+            app.monMenu.Text = 'mon';
+
+            % Create tueMenu
+            app.tueMenu = uimenu(app.SetDayMenu);
+            app.tueMenu.Tooltip = {'3rd Day'};
+            app.tueMenu.Text = 'tue';
+
+            % Create wedMenu
+            app.wedMenu = uimenu(app.SetDayMenu);
+            app.wedMenu.Tooltip = {'4th Day'};
+            app.wedMenu.Text = 'wed';
+
+            % Create thuMenu
+            app.thuMenu = uimenu(app.SetDayMenu);
+            app.thuMenu.Tooltip = {'5th Day'};
+            app.thuMenu.Text = 'thu';
+
+            % Create friMenu
+            app.friMenu = uimenu(app.SetDayMenu);
+            app.friMenu.Tooltip = {'6th Day'};
+            app.friMenu.Text = 'fri';
+
+            % Create satMenu
+            app.satMenu = uimenu(app.SetDayMenu);
+            app.satMenu.Tooltip = {'7th Day'};
+            app.satMenu.Text = 'sat';
+
+            % Create ShowMenu
+            app.ShowMenu = uimenu(app.ControlsMenu);
+            app.ShowMenu.Separator = 'on';
+            app.ShowMenu.Text = 'Show';
+
+            % Create CFMenu
+            app.CFMenu = uimenu(app.ShowMenu);
+            app.CFMenu.Text = 'CF';
+
+            % Create ROCMenu
+            app.ROCMenu = uimenu(app.ShowMenu);
+            app.ROCMenu.Text = 'ROC';
+
+            % Create DataRegMenu
+            app.DataRegMenu = uimenu(app.ShowMenu);
+            app.DataRegMenu.Text = 'DataReg';
+
+            % Create HelpMenu
+            app.HelpMenu = uimenu(app.ChaseTheFireUIFigure);
+            app.HelpMenu.Tooltip = {'Help'};
+            app.HelpMenu.Text = 'Help';
+
+            % Create ChassersHelpMenu
+            app.ChassersHelpMenu = uimenu(app.HelpMenu);
+            app.ChassersHelpMenu.Tooltip = {'Chassers Help'};
+            app.ChassersHelpMenu.Accelerator = 'r';
+            app.ChassersHelpMenu.Text = 'Chassers Help';
+
+            % Create KeyboardShortcutsMenu
+            app.KeyboardShortcutsMenu = uimenu(app.HelpMenu);
+            app.KeyboardShortcutsMenu.Tooltip = {'Keyboard Shortcuts'};
+            app.KeyboardShortcutsMenu.Accelerator = 'q';
+            app.KeyboardShortcutsMenu.Text = 'Keyboard Shortcuts';
+
+            % Create ApplicationUserGideMenu
+            app.ApplicationUserGideMenu = uimenu(app.HelpMenu);
+            app.ApplicationUserGideMenu.Tooltip = {'Application User Gide'};
+            app.ApplicationUserGideMenu.Separator = 'on';
+            app.ApplicationUserGideMenu.Accelerator = 'g';
+            app.ApplicationUserGideMenu.Text = 'Application User Gide';
+
+            % Create NextUpdateMenu
+            app.NextUpdateMenu = uimenu(app.HelpMenu);
+            app.NextUpdateMenu.Tooltip = {'Check for updayes'};
+            app.NextUpdateMenu.Separator = 'on';
+            app.NextUpdateMenu.Accelerator = 'u';
+            app.NextUpdateMenu.Text = 'Next Update';
+
+            % Create AboutUsMenu
+            app.AboutUsMenu = uimenu(app.HelpMenu);
+            app.AboutUsMenu.Tooltip = {'Chasers'};
+            app.AboutUsMenu.Separator = 'on';
+            app.AboutUsMenu.Accelerator = 'w';
+            app.AboutUsMenu.Text = 'About Us';
+
+            % Create chasethefire_1
+            app.chasethefire_1 = uipanel(app.ChaseTheFireUIFigure);
+            app.chasethefire_1.AutoResizeChildren = 'off';
+            app.chasethefire_1.Title = 'Chase The Fire';
+            app.chasethefire_1.BackgroundColor = [1 1 1];
+            app.chasethefire_1.Position = [2 35 1540 761];
+
+            % Create Panel_6
+            app.Panel_6 = uipanel(app.chasethefire_1);
+            app.Panel_6.BackgroundColor = [0.149 0.149 0.149];
+            app.Panel_6.Position = [6 3 870 734];
+
+            % Create GridLayout
+            app.GridLayout = uigridlayout(app.Panel_6);
+            app.GridLayout.ColumnWidth = {'1x', '2.5x'};
+            app.GridLayout.RowHeight = {'1x', '2x', '2x', '3x', '3x', '1x'};
+            app.GridLayout.ColumnSpacing = 1;
+            app.GridLayout.RowSpacing = 5;
+            app.GridLayout.Padding = [5 5 5 5];
+            app.GridLayout.Interruptible = 'off';
+
+            % Create CoordinatesLabel
+            app.CoordinatesLabel = uilabel(app.GridLayout);
+            app.CoordinatesLabel.BackgroundColor = [0.9412 0.9412 0.9412];
+            app.CoordinatesLabel.FontName = 'Arial Black';
+            app.CoordinatesLabel.FontSize = 20;
+            app.CoordinatesLabel.FontWeight = 'bold';
+            app.CoordinatesLabel.Layout.Row = 2;
+            app.CoordinatesLabel.Layout.Column = 1;
+            app.CoordinatesLabel.Text = '   Coordinates';
+
+            % Create EnvironmentLabel
+            app.EnvironmentLabel = uilabel(app.GridLayout);
+            app.EnvironmentLabel.BackgroundColor = [0.9412 0.9412 0.9412];
+            app.EnvironmentLabel.FontName = 'Arial Black';
+            app.EnvironmentLabel.FontSize = 20;
+            app.EnvironmentLabel.FontWeight = 'bold';
+            app.EnvironmentLabel.Layout.Row = 5;
+            app.EnvironmentLabel.Layout.Column = 1;
+            app.EnvironmentLabel.Text = '   Environment';
+
+            % Create PannelFunctionLabel
+            app.PannelFunctionLabel = uilabel(app.GridLayout);
+            app.PannelFunctionLabel.BackgroundColor = [0.9412 0.9412 0.9412];
+            app.PannelFunctionLabel.FontName = 'Arial Black';
+            app.PannelFunctionLabel.FontSize = 20;
+            app.PannelFunctionLabel.FontWeight = 'bold';
+            app.PannelFunctionLabel.Layout.Row = 1;
+            app.PannelFunctionLabel.Layout.Column = 1;
+            app.PannelFunctionLabel.Text = '  Pannel Function';
+
+            % Create FireAreaPredictionLabel
+            app.FireAreaPredictionLabel = uilabel(app.GridLayout);
+            app.FireAreaPredictionLabel.BackgroundColor = [0.9412 0.9412 0.9412];
+            app.FireAreaPredictionLabel.HorizontalAlignment = 'center';
+            app.FireAreaPredictionLabel.VerticalAlignment = 'top';
+            app.FireAreaPredictionLabel.FontName = 'Baskerville Old Face';
+            app.FireAreaPredictionLabel.FontSize = 40;
+            app.FireAreaPredictionLabel.FontWeight = 'bold';
+            app.FireAreaPredictionLabel.Layout.Row = 1;
+            app.FireAreaPredictionLabel.Layout.Column = 2;
+            app.FireAreaPredictionLabel.Text = '🔥 Fire Area Prediction  🔥';
+
+            % Create SomeFactorsLabel
+            app.SomeFactorsLabel = uilabel(app.GridLayout);
+            app.SomeFactorsLabel.BackgroundColor = [0.9412 0.9412 0.9412];
+            app.SomeFactorsLabel.FontName = 'Arial Black';
+            app.SomeFactorsLabel.FontSize = 20;
+            app.SomeFactorsLabel.FontWeight = 'bold';
+            app.SomeFactorsLabel.Layout.Row = 4;
+            app.SomeFactorsLabel.Layout.Column = 1;
+            app.SomeFactorsLabel.Text = '  Some Factors';
+
+            % Create periodDateLabel
+            app.periodDateLabel = uilabel(app.GridLayout);
+            app.periodDateLabel.BackgroundColor = [0.9412 0.9412 0.9412];
+            app.periodDateLabel.FontName = 'Arial Black';
+            app.periodDateLabel.FontSize = 20;
+            app.periodDateLabel.FontWeight = 'bold';
+            app.periodDateLabel.Layout.Row = 3;
+            app.periodDateLabel.Layout.Column = 1;
+            app.periodDateLabel.Text = '   period Date';
+
+            % Create Panel_2
+            app.Panel_2 = uipanel(app.GridLayout);
+            app.Panel_2.Layout.Row = 2;
+            app.Panel_2.Layout.Column = 2;
+
+            % Create xedit
+            app.xedit = uieditfield(app.Panel_2, 'text');
+            app.xedit.HorizontalAlignment = 'center';
+            app.xedit.FontName = 'Arial Black';
+            app.xedit.FontSize = 15;
+            app.xedit.FontWeight = 'bold';
+            app.xedit.Tooltip = {'Enter X-Axis Here'};
+            app.xedit.Position = [40 47 160 39];
+            app.xedit.Value = '10';
+
+            % Create XLabel
+            app.XLabel = uilabel(app.Panel_2);
+            app.XLabel.HorizontalAlignment = 'center';
+            app.XLabel.FontName = 'Arial Black';
+            app.XLabel.FontSize = 18;
+            app.XLabel.FontWeight = 'bold';
+            app.XLabel.Position = [107 87 25 28];
+            app.XLabel.Text = 'X';
+
+            % Create xl
+            app.xl = uilabel(app.Panel_2);
+            app.xl.HorizontalAlignment = 'center';
+            app.xl.FontName = 'Arial';
+            app.xl.FontSize = 13;
+            app.xl.Position = [-1 2 245 40];
+            app.xl.Text = {'X-axis coordinate within The Montesinho '; 'park map From 10 to 500'};
+
+            % Create YLabel
+            app.YLabel = uilabel(app.Panel_2);
+            app.YLabel.HorizontalAlignment = 'center';
+            app.YLabel.FontName = 'Arial Black';
+            app.YLabel.FontSize = 18;
+            app.YLabel.FontWeight = 'bold';
+            app.YLabel.Position = [408 87 25 28];
+            app.YLabel.Text = 'Y';
+
+            % Create yedit
+            app.yedit = uieditfield(app.Panel_2, 'text');
+            app.yedit.HorizontalAlignment = 'center';
+            app.yedit.FontName = 'Arial Black';
+            app.yedit.FontSize = 15;
+            app.yedit.FontWeight = 'bold';
+            app.yedit.Tooltip = {'Enter Y-Axis Here'};
+            app.yedit.Position = [339 47 160 39];
+            app.yedit.Value = '10';
+
+            % Create yl
+            app.yl = uilabel(app.Panel_2);
+            app.yl.HorizontalAlignment = 'center';
+            app.yl.FontName = 'Arial';
+            app.yl.FontSize = 13;
+            app.yl.Position = [303 2 241 40];
+            app.yl.Text = {'Y-axis coordinate within The Montesinho'; ' park map From 10 to 400'};
+
+            % Create Label_2
+            app.Label_2 = uilabel(app.Panel_2);
+            app.Label_2.BackgroundColor = [0.149 0.149 0.149];
+            app.Label_2.Position = [263 10 2 102];
+            app.Label_2.Text = '';
+
+            % Create Panel_5
+            app.Panel_5 = uipanel(app.GridLayout);
+            app.Panel_5.Layout.Row = 5;
+            app.Panel_5.Layout.Column = 2;
+
+            % Create Label_7
+            app.Label_7 = uilabel(app.Panel_5);
+            app.Label_7.BackgroundColor = [0.149 0.149 0.149];
+            app.Label_7.Position = [265 10 2 73];
+            app.Label_7.Text = '';
+
+            % Create Label_8
+            app.Label_8 = uilabel(app.Panel_5);
+            app.Label_8.BackgroundColor = [0.149 0.149 0.149];
+            app.Label_8.Position = [265 96 2 72];
+            app.Label_8.Text = '';
+
+            % Create Label_9
+            app.Label_9 = uilabel(app.Panel_5);
+            app.Label_9.BackgroundColor = [0.149 0.149 0.149];
+            app.Label_9.HorizontalAlignment = 'center';
+            app.Label_9.Position = [20 89 507 6];
+            app.Label_9.Text = '';
+
+            % Create TempEditField_2Label
+            app.TempEditField_2Label = uilabel(app.Panel_5);
+            app.TempEditField_2Label.HorizontalAlignment = 'right';
+            app.TempEditField_2Label.FontName = 'Arial Black';
+            app.TempEditField_2Label.FontSize = 20;
+            app.TempEditField_2Label.FontWeight = 'bold';
+            app.TempEditField_2Label.Position = [16 134 59 31];
+            app.TempEditField_2Label.Text = 'Temp';
+
+            % Create tempedit
+            app.tempedit = uieditfield(app.Panel_5, 'text');
+            app.tempedit.HorizontalAlignment = 'center';
+            app.tempedit.FontName = 'Arial Black';
+            app.tempedit.FontSize = 15;
+            app.tempedit.FontWeight = 'bold';
+            app.tempedit.Tooltip = {'Enter Temperature Here'};
+            app.tempedit.Position = [99 133 144 30];
+            app.tempedit.Value = '22.9';
+
+            % Create tl
+            app.tl = uilabel(app.Panel_5);
+            app.tl.HorizontalAlignment = 'center';
+            app.tl.FontName = 'Arial';
+            app.tl.FontSize = 13;
+            app.tl.Position = [11 100 216 30];
+            app.tl.Text = {'temperature in Celsius '; 'degrees: 2.2 to 33.30'};
+
+            % Create rhl
+            app.rhl = uilabel(app.Panel_5);
+            app.rhl.HorizontalAlignment = 'center';
+            app.rhl.FontName = 'Arial';
+            app.rhl.FontSize = 13;
+            app.rhl.Position = [270 100 225 30];
+            app.rhl.Text = 'relative humidity in %: 15.0 to 100';
+
+            % Create RHEditField_2Label
+            app.RHEditField_2Label = uilabel(app.Panel_5);
+            app.RHEditField_2Label.HorizontalAlignment = 'right';
+            app.RHEditField_2Label.FontName = 'Arial Black';
+            app.RHEditField_2Label.FontSize = 20;
+            app.RHEditField_2Label.FontWeight = 'bold';
+            app.RHEditField_2Label.Position = [261 133 66 40];
+            app.RHEditField_2Label.Text = 'RH';
+
+            % Create rhedit
+            app.rhedit = uieditfield(app.Panel_5, 'text');
+            app.rhedit.HorizontalAlignment = 'center';
+            app.rhedit.FontName = 'Arial Black';
+            app.rhedit.FontSize = 15;
+            app.rhedit.FontWeight = 'bold';
+            app.rhedit.Tooltip = {'Enter Relative Humidity Here'};
+            app.rhedit.Position = [350 133 150 30];
+            app.rhedit.Value = '39';
+
+            % Create wl
+            app.wl = uilabel(app.Panel_5);
+            app.wl.HorizontalAlignment = 'center';
+            app.wl.FontName = 'Arial';
+            app.wl.FontSize = 13;
+            app.wl.Position = [16 14 194 30];
+            app.wl.Text = 'wind speed in km/h: 0.40 to 9.40';
+
+            % Create WindEditField_3Label
+            app.WindEditField_3Label = uilabel(app.Panel_5);
+            app.WindEditField_3Label.HorizontalAlignment = 'right';
+            app.WindEditField_3Label.FontName = 'Arial Black';
+            app.WindEditField_3Label.FontSize = 20;
+            app.WindEditField_3Label.FontWeight = 'bold';
+            app.WindEditField_3Label.Position = [-2 44 60 31];
+            app.WindEditField_3Label.Text = 'Wind';
+
+            % Create windedit
+            app.windedit = uieditfield(app.Panel_5, 'text');
+            app.windedit.HorizontalAlignment = 'center';
+            app.windedit.FontName = 'Arial Black';
+            app.windedit.FontSize = 15;
+            app.windedit.FontWeight = 'bold';
+            app.windedit.Tooltip = {'Enter Wind Speed Here'};
+            app.windedit.Position = [86 43 150 30];
+            app.windedit.Value = '4.9';
+
+            % Create rl
+            app.rl = uilabel(app.Panel_5);
+            app.rl.HorizontalAlignment = 'center';
+            app.rl.FontName = 'Arial';
+            app.rl.FontSize = 13;
+            app.rl.Position = [279 14 225 30];
+            app.rl.Text = 'outside rain in mm/m2 : 0.0 to 6.4';
+
+            % Create RainEditField_2Label
+            app.RainEditField_2Label = uilabel(app.Panel_5);
+            app.RainEditField_2Label.HorizontalAlignment = 'right';
+            app.RainEditField_2Label.FontName = 'Arial Black';
+            app.RainEditField_2Label.FontSize = 20;
+            app.RainEditField_2Label.FontWeight = 'bold';
+            app.RainEditField_2Label.Position = [276 44 55 31];
+            app.RainEditField_2Label.Text = {'Rain'; ''};
+
+            % Create rainedit
+            app.rainedit = uieditfield(app.Panel_5, 'text');
+            app.rainedit.HorizontalAlignment = 'center';
+            app.rainedit.FontName = 'Arial Black';
+            app.rainedit.FontSize = 15;
+            app.rainedit.FontWeight = 'bold';
+            app.rainedit.Tooltip = {'Enter Rain Here'};
+            app.rainedit.Position = [349 43 150 30];
+            app.rainedit.Value = '0.0';
+
+            % Create ShowFigureLabel
+            app.ShowFigureLabel = uilabel(app.GridLayout);
+            app.ShowFigureLabel.BackgroundColor = [0.9412 0.9412 0.9412];
+            app.ShowFigureLabel.FontName = 'Arial Black';
+            app.ShowFigureLabel.FontSize = 20;
+            app.ShowFigureLabel.FontWeight = 'bold';
+            app.ShowFigureLabel.Layout.Row = 6;
+            app.ShowFigureLabel.Layout.Column = 1;
+            app.ShowFigureLabel.Text = '  Show Figure';
+
+            % Create ButtonGroup
+            app.ButtonGroup = uibuttongroup(app.GridLayout);
+            app.ButtonGroup.AutoResizeChildren = 'off';
+            app.ButtonGroup.TitlePosition = 'centertop';
+            app.ButtonGroup.Layout.Row = 6;
+            app.ButtonGroup.Layout.Column = 2;
+
+            % Create sl
+            app.sl = uilabel(app.ButtonGroup);
+            app.sl.HorizontalAlignment = 'center';
+            app.sl.FontName = 'Arial';
+            app.sl.FontSize = 15;
+            app.sl.Position = [20 24 162 22];
+            app.sl.Text = 'Choose Fig. to Show';
+
+            % Create dddp
+            app.dddp = uidropdown(app.ButtonGroup);
+            app.dddp.Items = {'CF', 'ROC', 'DataReg'};
+            app.dddp.FontSize = 20;
+            app.dddp.FontWeight = 'bold';
+            app.dddp.Position = [196 19 100 24.7151527404785];
+            app.dddp.Value = 'CF';
+
+            % Create Button
+            app.Button = uibutton(app.ButtonGroup, 'push');
+            app.Button.ButtonPushedFcn = createCallbackFcn(app, @ButtonPushed, true);
+            app.Button.FontSize = 20;
+            app.Button.Position = [313 12 47 38];
+            app.Button.Text = '👁️‍🗨️';
+
+            % Create Panel_4
+            app.Panel_4 = uipanel(app.GridLayout);
+            app.Panel_4.Layout.Row = 3;
+            app.Panel_4.Layout.Column = 2;
+
+            % Create ml
+            app.ml = uilabel(app.Panel_4);
+            app.ml.HorizontalAlignment = 'center';
+            app.ml.FontName = 'Arial';
+            app.ml.FontSize = 13;
+            app.ml.Position = [6 2 219 30];
+            app.ml.Text = 'Month of the year: ''jan'' to ''dec''';
+
+            % Create dl
+            app.dl = uilabel(app.Panel_4);
+            app.dl.HorizontalAlignment = 'center';
+            app.dl.FontName = 'Arial';
+            app.dl.FontSize = 13;
+            app.dl.Position = [297 5 219 30];
+            app.dl.Text = 'Day of the week: ''sun'' to ''sat''';
+
+            % Create Label_4
+            app.Label_4 = uilabel(app.Panel_4);
+            app.Label_4.BackgroundColor = [0.149 0.149 0.149];
+            app.Label_4.Position = [263 -1 2 115];
+            app.Label_4.Text = '';
+
+            % Create mdd
+            app.mdd = uidropdown(app.Panel_4);
+            app.mdd.Items = {'jan', 'feb', 'mar', 'may', 'jun', 'jul', 'aug', 'sep', 'oct'};
+            app.mdd.Tooltip = {'Choose Month From Here'};
+            app.mdd.FontName = 'Arial Black';
+            app.mdd.FontSize = 15;
+            app.mdd.FontWeight = 'bold';
+            app.mdd.Position = [34 36 160 39];
+            app.mdd.Value = 'jan';
+
+            % Create ddd
+            app.ddd = uidropdown(app.Panel_4);
+            app.ddd.Items = {'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'};
+            app.ddd.Tooltip = {'Choose Day From Here'};
+            app.ddd.FontName = 'Arial Black';
+            app.ddd.FontSize = 15;
+            app.ddd.FontWeight = 'bold';
+            app.ddd.Position = [324 39 160 39];
+            app.ddd.Value = 'sun';
+
+            % Create MonthLabel
+            app.MonthLabel = uilabel(app.Panel_4);
+            app.MonthLabel.HorizontalAlignment = 'center';
+            app.MonthLabel.FontName = 'Arial Black';
+            app.MonthLabel.FontSize = 18;
+            app.MonthLabel.FontWeight = 'bold';
+            app.MonthLabel.Position = [81 82 66 28];
+            app.MonthLabel.Text = 'Month';
+
+            % Create DayLabel
+            app.DayLabel = uilabel(app.Panel_4);
+            app.DayLabel.HorizontalAlignment = 'center';
+            app.DayLabel.FontName = 'Arial Black';
+            app.DayLabel.FontSize = 18;
+            app.DayLabel.FontWeight = 'bold';
+            app.DayLabel.Position = [382 85 42 28];
+            app.DayLabel.Text = 'Day';
+
+            % Create Panel_3
+            app.Panel_3 = uipanel(app.GridLayout);
+            app.Panel_3.Layout.Row = 4;
+            app.Panel_3.Layout.Column = 2;
+
+            % Create Label_3
+            app.Label_3 = uilabel(app.Panel_3);
+            app.Label_3.BackgroundColor = [0.149 0.149 0.149];
+            app.Label_3.Position = [265 10 2 73];
+            app.Label_3.Text = '';
+
+            % Create Label_5
+            app.Label_5 = uilabel(app.Panel_3);
+            app.Label_5.BackgroundColor = [0.149 0.149 0.149];
+            app.Label_5.Position = [264 96 2 72];
+            app.Label_5.Text = '';
+
+            % Create Label_6
+            app.Label_6 = uilabel(app.Panel_3);
+            app.Label_6.BackgroundColor = [0.149 0.149 0.149];
+            app.Label_6.HorizontalAlignment = 'center';
+            app.Label_6.Position = [20 88 497 6];
+            app.Label_6.Text = '';
+
+            % Create FFMCEditFieldLabel
+            app.FFMCEditFieldLabel = uilabel(app.Panel_3);
+            app.FFMCEditFieldLabel.HorizontalAlignment = 'right';
+            app.FFMCEditFieldLabel.FontName = 'Arial Black';
+            app.FFMCEditFieldLabel.FontSize = 20;
+            app.FFMCEditFieldLabel.FontWeight = 'bold';
+            app.FFMCEditFieldLabel.Position = [18 134 66 31];
+            app.FFMCEditFieldLabel.Text = 'FFMC';
+
+            % Create ffmcedit
+            app.ffmcedit = uieditfield(app.Panel_3, 'text');
+            app.ffmcedit.HorizontalAlignment = 'center';
+            app.ffmcedit.FontName = 'Arial Black';
+            app.ffmcedit.FontSize = 15;
+            app.ffmcedit.FontWeight = 'bold';
+            app.ffmcedit.Tooltip = {'Enter Fine Fuel Moisture Code Here'};
+            app.ffmcedit.Position = [90 136 150 30];
+            app.ffmcedit.Value = '93.5';
+
+            % Create fl
+            app.fl = uilabel(app.Panel_3);
+            app.fl.HorizontalAlignment = 'center';
+            app.fl.FontName = 'Arial';
+            app.fl.FontSize = 13;
+            app.fl.Position = [9 100 228 30];
+            app.fl.Text = {'Fine Fuel Moisture Code '; 'From 0.00 to 1090.84'};
+
+            % Create dml
+            app.dml = uilabel(app.Panel_3);
+            app.dml.HorizontalAlignment = 'center';
+            app.dml.FontName = 'Arial';
+            app.dml.FontSize = 13;
+            app.dml.Position = [279 100 225 30];
+            app.dml.Text = 'Duff Moisture Code From 1.1 to 291.3';
+
+            % Create DMCEditField_2Label
+            app.DMCEditField_2Label = uilabel(app.Panel_3);
+            app.DMCEditField_2Label.HorizontalAlignment = 'right';
+            app.DMCEditField_2Label.FontName = 'Arial Black';
+            app.DMCEditField_2Label.FontSize = 20;
+            app.DMCEditField_2Label.FontWeight = 'bold';
+            app.DMCEditField_2Label.Position = [270 133 66 40];
+            app.DMCEditField_2Label.Text = 'DMC';
+
+            % Create dmcedit
+            app.dmcedit = uieditfield(app.Panel_3, 'text');
+            app.dmcedit.HorizontalAlignment = 'center';
+            app.dmcedit.FontName = 'Arial Black';
+            app.dmcedit.FontSize = 15;
+            app.dmcedit.FontWeight = 'bold';
+            app.dmcedit.Tooltip = {'Enter Duff Moisture Code Here'};
+            app.dmcedit.Position = [359 135 150 30];
+            app.dmcedit.Value = '149.3';
+
+            % Create dcl
+            app.dcl = uilabel(app.Panel_3);
+            app.dcl.HorizontalAlignment = 'center';
+            app.dcl.FontName = 'Arial';
+            app.dcl.FontSize = 13;
+            app.dcl.Position = [27 14 194 30];
+            app.dcl.Text = 'Drought Code From 7.9 to 860.6';
+
+            % Create DCLabel
+            app.DCLabel = uilabel(app.Panel_3);
+            app.DCLabel.HorizontalAlignment = 'right';
+            app.DCLabel.FontName = 'Arial Black';
+            app.DCLabel.FontSize = 20;
+            app.DCLabel.FontWeight = 'bold';
+            app.DCLabel.Position = [16 44 43 31];
+            app.DCLabel.Text = ' DC';
+
+            % Create dcedit
+            app.dcedit = uieditfield(app.Panel_3, 'text');
+            app.dcedit.HorizontalAlignment = 'center';
+            app.dcedit.FontName = 'Arial Black';
+            app.dcedit.FontSize = 15;
+            app.dcedit.FontWeight = 'bold';
+            app.dcedit.Tooltip = {'Enter Drought Code Here'};
+            app.dcedit.Position = [87 45 150 30];
+            app.dcedit.Value = '728.6';
+
+            % Create il
+            app.il = uilabel(app.Panel_3);
+            app.il.HorizontalAlignment = 'center';
+            app.il.FontName = 'Arial';
+            app.il.FontSize = 13;
+            app.il.Position = [294 14 225 30];
+            app.il.Text = 'Initial Spread Index From 0.0 to 56.10';
+
+            % Create ISILabel
+            app.ISILabel = uilabel(app.Panel_3);
+            app.ISILabel.HorizontalAlignment = 'right';
+            app.ISILabel.FontName = 'Arial Black';
+            app.ISILabel.FontSize = 20;
+            app.ISILabel.FontWeight = 'bold';
+            app.ISILabel.Position = [275 44 56 31];
+            app.ISILabel.Text = '   ISI';
+
+            % Create isiedit
+            app.isiedit = uieditfield(app.Panel_3, 'text');
+            app.isiedit.HorizontalAlignment = 'center';
+            app.isiedit.FontName = 'Arial Black';
+            app.isiedit.FontSize = 15;
+            app.isiedit.FontWeight = 'bold';
+            app.isiedit.Tooltip = {'Enter Initial Spread Index Here'};
+            app.isiedit.Position = [349 45 150 30];
+            app.isiedit.Value = '8.1';
+
+            % Create PredictButton
+            app.PredictButton = uibutton(app.chasethefire_1, 'state');
+            app.PredictButton.ValueChangedFcn = createCallbackFcn(app, @PredictButtonValueChanged, true);
+            app.PredictButton.Text = 'Predict';
+            app.PredictButton.BackgroundColor = [0 0 0];
+            app.PredictButton.FontSize = 50;
+            app.PredictButton.FontWeight = 'bold';
+            app.PredictButton.FontColor = [1 1 1];
+            app.PredictButton.Position = [1022 545 270 81];
+
+            % Create arealabel
+            app.arealabel = uilabel(app.chasethefire_1);
+            app.arealabel.HorizontalAlignment = 'center';
+            app.arealabel.FontName = 'Arial Black';
+            app.arealabel.FontSize = 25;
+            app.arealabel.FontWeight = 'bold';
+            app.arealabel.Position = [1104 493 106 40];
+            app.arealabel.Text = 'A R E A';
+
+            % Create areafinal
+            app.areafinal = uieditfield(app.chasethefire_1, 'text');
+            app.areafinal.Editable = 'off';
+            app.areafinal.HorizontalAlignment = 'center';
+            app.areafinal.FontName = 'Berlin Sans FB Demi';
+            app.areafinal.FontSize = 30;
+            app.areafinal.FontColor = [1 1 1];
+            app.areafinal.BackgroundColor = [0 0 0];
+            app.areafinal.Enable = 'off';
+            app.areafinal.Position = [985 438 418 44];
+            app.areafinal.Value = '?';
+
+            % Create areadet
+            app.areadet = uilabel(app.chasethefire_1);
+            app.areadet.HorizontalAlignment = 'center';
+            app.areadet.FontName = 'Arial';
+            app.areadet.FontSize = 13;
+            app.areadet.FontWeight = 'bold';
+            app.areadet.Position = [1012 399 333 40];
+            app.areadet.Text = 'The burned area of the forest (in ha): 0.00 to 1090.84';
+
+            % Create mapl
+            app.mapl = uilabel(app.chasethefire_1);
+            app.mapl.HorizontalAlignment = 'center';
+            app.mapl.FontName = 'Arial';
+            app.mapl.FontSize = 13;
+            app.mapl.FontWeight = 'bold';
+            app.mapl.Position = [1067 0 225 30];
+            app.mapl.Text = 'Choose Map Mode Satellite - Maps';
+
+            % Create MapsButton
+            app.MapsButton = uibutton(app.chasethefire_1, 'state');
+            app.MapsButton.ValueChangedFcn = createCallbackFcn(app, @MapsButtonValueChanged, true);
+            app.MapsButton.Icon = 'maps.png';
+            app.MapsButton.IconAlignment = 'top';
+            app.MapsButton.Text = 'Maps';
+            app.MapsButton.BackgroundColor = [0 0 0];
+            app.MapsButton.FontSize = 13;
+            app.MapsButton.FontWeight = 'bold';
+            app.MapsButton.FontColor = [1 1 1];
+            app.MapsButton.Position = [1125 26 111 90];
+
+            % Create UIAxes
+            app.UIAxes = uiaxes(app.chasethefire_1);
+            title(app.UIAxes, '')
+            xlabel(app.UIAxes, '')
+            ylabel(app.UIAxes, '')
+            app.UIAxes.FontSize = 1;
+            app.UIAxes.ZLim = [0 1];
+            app.UIAxes.Box = 'on';
+            app.UIAxes.BoxStyle = 'full';
+            app.UIAxes.XTick = [0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1];
+            app.UIAxes.NextPlot = 'add';
+            app.UIAxes.BackgroundColor = [1 1 1];
+            app.UIAxes.Clipping = 'off';
+            app.UIAxes.Position = [916 123 531 275];
+
+            % Create TypeFirePerdictionButton
+            app.TypeFirePerdictionButton = uibutton(app.chasethefire_1, 'state');
+            app.TypeFirePerdictionButton.ValueChangedFcn = createCallbackFcn(app, @TypeFirePerdictionButtonValueChanged, true);
+            app.TypeFirePerdictionButton.Text = 'Flip Type Fire Perdiction';
+            app.TypeFirePerdictionButton.BackgroundColor = [1 0.4118 0.1608];
+            app.TypeFirePerdictionButton.FontSize = 40;
+            app.TypeFirePerdictionButton.FontWeight = 'bold';
+            app.TypeFirePerdictionButton.FontColor = [1 1 1];
+            app.TypeFirePerdictionButton.Position = [894 646 608 81];
+
+            % Create chasethefire_2
+            app.chasethefire_2 = uipanel(app.ChaseTheFireUIFigure);
+            app.chasethefire_2.AutoResizeChildren = 'off';
+            app.chasethefire_2.Title = 'Chase The Fire';
+            app.chasethefire_2.BackgroundColor = [1 1 1];
+            app.chasethefire_2.Position = [5 30 1540 765];
+
+            % Create PredictButton_2
+            app.PredictButton_2 = uibutton(app.chasethefire_2, 'state');
+            app.PredictButton_2.ValueChangedFcn = createCallbackFcn(app, @PredictButton_2ValueChanged, true);
+            app.PredictButton_2.Text = 'Predict';
+            app.PredictButton_2.BackgroundColor = [0 0 0];
+            app.PredictButton_2.FontSize = 50;
+            app.PredictButton_2.FontWeight = 'bold';
+            app.PredictButton_2.FontColor = [1 1 1];
+            app.PredictButton_2.Position = [1049 545 270 81];
+
+            % Create arealabel_2
+            app.arealabel_2 = uilabel(app.chasethefire_2);
+            app.arealabel_2.HorizontalAlignment = 'center';
+            app.arealabel_2.FontName = 'Arial Black';
+            app.arealabel_2.FontSize = 25;
+            app.arealabel_2.FontWeight = 'bold';
+            app.arealabel_2.Position = [1132 491 104 39];
+            app.arealabel_2.Text = 'T Y P E';
+
+            % Create Image2
+            app.Image2 = uiimage(app.chasethefire_2);
+            app.Image2.Position = [960 133 449 287];
+            app.Image2.ImageSource = 'roc0.png';
+
+            % Create areafinal_2
+            app.areafinal_2 = uieditfield(app.chasethefire_2, 'text');
+            app.areafinal_2.Editable = 'off';
+            app.areafinal_2.HorizontalAlignment = 'center';
+            app.areafinal_2.FontName = 'Berlin Sans FB Demi';
+            app.areafinal_2.FontSize = 30;
+            app.areafinal_2.FontColor = [1 1 1];
+            app.areafinal_2.BackgroundColor = [0 0 0];
+            app.areafinal_2.Enable = 'off';
+            app.areafinal_2.Position = [960 430 425 47];
+            app.areafinal_2.Value = '?';
+
+            % Create FlipFireAreaPredictionButton
+            app.FlipFireAreaPredictionButton = uibutton(app.chasethefire_2, 'state');
+            app.FlipFireAreaPredictionButton.ValueChangedFcn = createCallbackFcn(app, @FlipFireAreaPredictionButtonValueChanged, true);
+            app.FlipFireAreaPredictionButton.Text = 'Flip Fire Area Prediction';
+            app.FlipFireAreaPredictionButton.BackgroundColor = [1 0.4118 0.1608];
+            app.FlipFireAreaPredictionButton.FontSize = 40;
+            app.FlipFireAreaPredictionButton.FontWeight = 'bold';
+            app.FlipFireAreaPredictionButton.FontColor = [1 1 1];
+            app.FlipFireAreaPredictionButton.Position = [895 660 607 81];
+
+            % Create Panel_7
+            app.Panel_7 = uipanel(app.chasethefire_2);
+            app.Panel_7.AutoResizeChildren = 'off';
+            app.Panel_7.BackgroundColor = [0.149 0.149 0.149];
+            app.Panel_7.Position = [6 5 872 742];
+
+            % Create GridLayout_2
+            app.GridLayout_2 = uigridlayout(app.Panel_7);
+            app.GridLayout_2.ColumnWidth = {'1x', '3x'};
+            app.GridLayout_2.RowHeight = {'1.5x', '2x', '4x', '2x', '2x', '1x'};
+            app.GridLayout_2.ColumnSpacing = 1;
+            app.GridLayout_2.RowSpacing = 5;
+            app.GridLayout_2.Padding = [5 5 5 5];
+            app.GridLayout_2.Interruptible = 'off';
+
+            % Create SomeFactorsLabel_3
+            app.SomeFactorsLabel_3 = uilabel(app.GridLayout_2);
+            app.SomeFactorsLabel_3.BackgroundColor = [0.9412 0.9412 0.9412];
+            app.SomeFactorsLabel_3.FontName = 'Arial Black';
+            app.SomeFactorsLabel_3.FontSize = 20;
+            app.SomeFactorsLabel_3.FontWeight = 'bold';
+            app.SomeFactorsLabel_3.Layout.Row = 3;
+            app.SomeFactorsLabel_3.Layout.Column = 1;
+            app.SomeFactorsLabel_3.Text = '   Some Factors';
+
+            % Create PannelFunctionLabel_2
+            app.PannelFunctionLabel_2 = uilabel(app.GridLayout_2);
+            app.PannelFunctionLabel_2.BackgroundColor = [0.9412 0.9412 0.9412];
+            app.PannelFunctionLabel_2.FontName = 'Arial Black';
+            app.PannelFunctionLabel_2.FontSize = 20;
+            app.PannelFunctionLabel_2.FontWeight = 'bold';
+            app.PannelFunctionLabel_2.Layout.Row = 1;
+            app.PannelFunctionLabel_2.Layout.Column = 1;
+            app.PannelFunctionLabel_2.Text = '  Pannel Function';
+
+            % Create TypeFirePerdictionLabel
+            app.TypeFirePerdictionLabel = uilabel(app.GridLayout_2);
+            app.TypeFirePerdictionLabel.BackgroundColor = [0.9412 0.9412 0.9412];
+            app.TypeFirePerdictionLabel.HorizontalAlignment = 'center';
+            app.TypeFirePerdictionLabel.VerticalAlignment = 'top';
+            app.TypeFirePerdictionLabel.FontName = 'Baskerville Old Face';
+            app.TypeFirePerdictionLabel.FontSize = 40;
+            app.TypeFirePerdictionLabel.FontWeight = 'bold';
+            app.TypeFirePerdictionLabel.Layout.Row = 1;
+            app.TypeFirePerdictionLabel.Layout.Column = 2;
+            app.TypeFirePerdictionLabel.Text = '🔥 Type Fire Perdiction 🔥';
+
+            % Create TemperatureLabel
+            app.TemperatureLabel = uilabel(app.GridLayout_2);
+            app.TemperatureLabel.BackgroundColor = [0.9412 0.9412 0.9412];
+            app.TemperatureLabel.FontName = 'Arial Black';
+            app.TemperatureLabel.FontSize = 20;
+            app.TemperatureLabel.FontWeight = 'bold';
+            app.TemperatureLabel.Layout.Row = 4;
+            app.TemperatureLabel.Layout.Column = 1;
+            app.TemperatureLabel.Text = '    Temperature';
+
+            % Create Panel_8
+            app.Panel_8 = uipanel(app.GridLayout_2);
+            app.Panel_8.Layout.Row = 4;
+            app.Panel_8.Layout.Column = 2;
+
+            % Create Label_13
+            app.Label_13 = uilabel(app.Panel_8);
+            app.Label_13.BackgroundColor = [0.149 0.149 0.149];
+            app.Label_13.Position = [310 12 2 93];
+            app.Label_13.Text = '';
+
+            % Create BrightnessLabel
+            app.BrightnessLabel = uilabel(app.Panel_8);
+            app.BrightnessLabel.HorizontalAlignment = 'right';
+            app.BrightnessLabel.FontName = 'Arial Black';
+            app.BrightnessLabel.FontSize = 20;
+            app.BrightnessLabel.FontWeight = 'bold';
+            app.BrightnessLabel.Position = [15 61 129 31];
+            app.BrightnessLabel.Text = 'Brightness ';
+
+            % Create briedit2
+            app.briedit2 = uieditfield(app.Panel_8, 'text');
+            app.briedit2.HorizontalAlignment = 'center';
+            app.briedit2.FontName = 'Arial Black';
+            app.briedit2.FontSize = 15;
+            app.briedit2.FontWeight = 'bold';
+            app.briedit2.Tooltip = {'Enter Fine Fuel Moisture Code Here'};
+            app.briedit2.Position = [152 62 150 30];
+            app.briedit2.Value = '317.2';
+
+            % Create fl_2
+            app.fl_2 = uilabel(app.Panel_8);
+            app.fl_2.HorizontalAlignment = 'center';
+            app.fl_2.FontName = 'Arial';
+            app.fl_2.FontSize = 13;
+            app.fl_2.Position = [5 27 279 30];
+            app.fl_2.Text = 'Brightness temperature 21 (Kelvin)';
+
+            % Create dml_2
+            app.dml_2 = uilabel(app.Panel_8);
+            app.dml_2.HorizontalAlignment = 'center';
+            app.dml_2.FontName = 'Arial';
+            app.dml_2.FontSize = 13;
+            app.dml_2.Position = [351 137 225 30];
+            app.dml_2.Text = 'Brightness temperature 31 (Kelvin)';
+
+            % Create Bright_T31Label
+            app.Bright_T31Label = uilabel(app.Panel_8);
+            app.Bright_T31Label.HorizontalAlignment = 'right';
+            app.Bright_T31Label.FontName = 'Arial Black';
+            app.Bright_T31Label.FontSize = 20;
+            app.Bright_T31Label.FontWeight = 'bold';
+            app.Bright_T31Label.Position = [342 168 124 40];
+            app.Bright_T31Label.Text = 'Bright_T31';
+
+            % Create briedit3
+            app.briedit3 = uieditfield(app.Panel_8, 'text');
+            app.briedit3.HorizontalAlignment = 'center';
+            app.briedit3.FontName = 'Arial Black';
+            app.briedit3.FontSize = 15;
+            app.briedit3.FontWeight = 'bold';
+            app.briedit3.Tooltip = {'Enter Duff Moisture Code Here'};
+            app.briedit3.Position = [477 170 150 30];
+            app.briedit3.Value = '293.1';
+
+            % Create briedit2_2
+            app.briedit2_2 = uieditfield(app.Panel_8, 'text');
+            app.briedit2_2.HorizontalAlignment = 'center';
+            app.briedit2_2.FontName = 'Arial Black';
+            app.briedit2_2.FontSize = 15;
+            app.briedit2_2.FontWeight = 'bold';
+            app.briedit2_2.Tooltip = {'Enter Fine Fuel Moisture Code Here'};
+            app.briedit2_2.Position = [469 60 150 30];
+            app.briedit2_2.Value = '293.1';
+
+            % Create fl_3
+            app.fl_3 = uilabel(app.Panel_8);
+            app.fl_3.HorizontalAlignment = 'center';
+            app.fl_3.FontName = 'Arial';
+            app.fl_3.FontSize = 13;
+            app.fl_3.Position = [322 25 279 30];
+            app.fl_3.Text = 'Brightness temperature 31 (Kelvin)';
+
+            % Create bright_t31Label
+            app.bright_t31Label = uilabel(app.Panel_8);
+            app.bright_t31Label.HorizontalAlignment = 'right';
+            app.bright_t31Label.FontName = 'Arial Black';
+            app.bright_t31Label.FontSize = 20;
+            app.bright_t31Label.FontWeight = 'bold';
+            app.bright_t31Label.Position = [332 59 129 31];
+            app.bright_t31Label.Text = 'bright_t31';
+
+            % Create Panel_10
+            app.Panel_10 = uipanel(app.GridLayout_2);
+            app.Panel_10.Layout.Row = 3;
+            app.Panel_10.Layout.Column = 2;
+
+            % Create Label_16
+            app.Label_16 = uilabel(app.Panel_10);
+            app.Label_16.BackgroundColor = [0.149 0.149 0.149];
+            app.Label_16.Position = [311 9 2 90];
+            app.Label_16.Text = '';
+
+            % Create Label_17
+            app.Label_17 = uilabel(app.Panel_10);
+            app.Label_17.BackgroundColor = [0.149 0.149 0.149];
+            app.Label_17.Position = [311 130 2 87];
+            app.Label_17.Text = '';
+
+            % Create Label_18
+            app.Label_18 = uilabel(app.Panel_10);
+            app.Label_18.BackgroundColor = [0.149 0.149 0.149];
+            app.Label_18.HorizontalAlignment = 'center';
+            app.Label_18.Position = [21 115 598 6];
+            app.Label_18.Text = '';
+
+            % Create ScanLabel
+            app.ScanLabel = uilabel(app.Panel_10);
+            app.ScanLabel.HorizontalAlignment = 'right';
+            app.ScanLabel.FontName = 'Arial Black';
+            app.ScanLabel.FontSize = 20;
+            app.ScanLabel.FontWeight = 'bold';
+            app.ScanLabel.Position = [65 168 60 31];
+            app.ScanLabel.Text = 'Scan';
+
+            % Create scanedit
+            app.scanedit = uieditfield(app.Panel_10, 'text');
+            app.scanedit.HorizontalAlignment = 'center';
+            app.scanedit.FontName = 'Arial Black';
+            app.scanedit.FontSize = 15;
+            app.scanedit.FontWeight = 'bold';
+            app.scanedit.Tooltip = {'Enter Temperature Here'};
+            app.scanedit.Position = [143 167 150 30];
+            app.scanedit.Value = '1.3';
+
+            % Create tl_2
+            app.tl_2 = uilabel(app.Panel_10);
+            app.tl_2.HorizontalAlignment = 'center';
+            app.tl_2.FontName = 'Arial';
+            app.tl_2.FontSize = 13;
+            app.tl_2.Position = [6 134 279 30];
+            app.tl_2.Text = 'Along Scan pixel size';
+
+            % Create rhl_2
+            app.rhl_2 = uilabel(app.Panel_10);
+            app.rhl_2.HorizontalAlignment = 'center';
+            app.rhl_2.FontName = 'Arial';
+            app.rhl_2.FontSize = 13;
+            app.rhl_2.Position = [353 134 225 30];
+            app.rhl_2.Text = 'Along Track pixel size';
+
+            % Create TrackLabel
+            app.TrackLabel = uilabel(app.Panel_10);
+            app.TrackLabel.HorizontalAlignment = 'right';
+            app.TrackLabel.FontName = 'Arial Black';
+            app.TrackLabel.FontSize = 20;
+            app.TrackLabel.FontWeight = 'bold';
+            app.TrackLabel.Position = [342 167 68 40];
+            app.TrackLabel.Text = 'Track';
+
+            % Create trackedit
+            app.trackedit = uieditfield(app.Panel_10, 'text');
+            app.trackedit.HorizontalAlignment = 'center';
+            app.trackedit.FontName = 'Arial Black';
+            app.trackedit.FontSize = 15;
+            app.trackedit.FontWeight = 'bold';
+            app.trackedit.Tooltip = {'Enter Relative Humidity Here'};
+            app.trackedit.Position = [433 167 150 30];
+            app.trackedit.Value = '1.1';
+
+            % Create wl_2
+            app.wl_2 = uilabel(app.Panel_10);
+            app.wl_2.HorizontalAlignment = 'center';
+            app.wl_2.FontName = 'Arial';
+            app.wl_2.FontSize = 13;
+            app.wl_2.Position = [64 17 194 30];
+            app.wl_2.Text = 'Confidence (0-100%)';
+
+            % Create ConfidenceLabel
+            app.ConfidenceLabel = uilabel(app.Panel_10);
+            app.ConfidenceLabel.HorizontalAlignment = 'right';
+            app.ConfidenceLabel.FontName = 'Arial Black';
+            app.ConfidenceLabel.FontSize = 18;
+            app.ConfidenceLabel.FontWeight = 'bold';
+            app.ConfidenceLabel.Position = [21 50 117 28];
+            app.ConfidenceLabel.Text = 'Confidence';
+
+            % Create conedit
+            app.conedit = uieditfield(app.Panel_10, 'text');
+            app.conedit.HorizontalAlignment = 'center';
+            app.conedit.FontName = 'Arial Black';
+            app.conedit.FontSize = 15;
+            app.conedit.FontWeight = 'bold';
+            app.conedit.Tooltip = {'Enter Wind Speed Here'};
+            app.conedit.Position = [144 48 150 30];
+            app.conedit.Value = '54';
+
+            % Create rl_2
+            app.rl_2 = uilabel(app.Panel_10);
+            app.rl_2.HorizontalAlignment = 'center';
+            app.rl_2.FontName = 'Arial';
+            app.rl_2.FontSize = 13;
+            app.rl_2.Position = [357 21 238 30];
+            app.rl_2.Text = 'Fire Radiative Power (MW - megawatts)';
+
+            % Create FRPLabel
+            app.FRPLabel = uilabel(app.Panel_10);
+            app.FRPLabel.HorizontalAlignment = 'right';
+            app.FRPLabel.FontName = 'Arial Black';
+            app.FRPLabel.FontSize = 20;
+            app.FRPLabel.FontWeight = 'bold';
+            app.FRPLabel.Position = [360 51 55 31];
+            app.FRPLabel.Text = 'FRP';
+
+            % Create frpedit
+            app.frpedit = uieditfield(app.Panel_10, 'text');
+            app.frpedit.HorizontalAlignment = 'center';
+            app.frpedit.FontName = 'Arial Black';
+            app.frpedit.FontSize = 15;
+            app.frpedit.FontWeight = 'bold';
+            app.frpedit.Tooltip = {'Enter Rain Here'};
+            app.frpedit.Position = [433 50 150 30];
+            app.frpedit.Value = '7.4';
+
+            % Create ShowFigureLabel_2
+            app.ShowFigureLabel_2 = uilabel(app.GridLayout_2);
+            app.ShowFigureLabel_2.BackgroundColor = [0.9412 0.9412 0.9412];
+            app.ShowFigureLabel_2.FontName = 'Arial Black';
+            app.ShowFigureLabel_2.FontSize = 20;
+            app.ShowFigureLabel_2.FontWeight = 'bold';
+            app.ShowFigureLabel_2.Layout.Row = 6;
+            app.ShowFigureLabel_2.Layout.Column = 1;
+            app.ShowFigureLabel_2.Text = '    Show Figure';
+
+            % Create ButtonGroup_2
+            app.ButtonGroup_2 = uibuttongroup(app.GridLayout_2);
+            app.ButtonGroup_2.AutoResizeChildren = 'off';
+            app.ButtonGroup_2.TitlePosition = 'centertop';
+            app.ButtonGroup_2.Layout.Row = 6;
+            app.ButtonGroup_2.Layout.Column = 2;
+
+            % Create xl_4
+            app.xl_4 = uilabel(app.ButtonGroup_2);
+            app.xl_4.HorizontalAlignment = 'center';
+            app.xl_4.FontName = 'Arial';
+            app.xl_4.FontSize = 13;
+            app.xl_4.Position = [9 13 135 23];
+            app.xl_4.Text = 'Choose Fig. To Show';
+
+            % Create ddd_4
+            app.ddd_4 = uidropdown(app.ButtonGroup_2);
+            app.ddd_4.Items = {'Confusion Matrix', 'Data Before & After'};
+            app.ddd_4.Tooltip = {'Choose Day From Here'};
+            app.ddd_4.FontName = 'Arial Black';
+            app.ddd_4.FontSize = 15;
+            app.ddd_4.FontWeight = 'bold';
+            app.ddd_4.Position = [162 11 228 26];
+            app.ddd_4.Value = 'Confusion Matrix';
+
+            % Create Button_2
+            app.Button_2 = uibutton(app.ButtonGroup_2, 'push');
+            app.Button_2.FontSize = 20;
+            app.Button_2.Position = [417 7 47 38];
+            app.Button_2.Text = '👁️‍🗨️';
+
+            % Create DimensionsLabel
+            app.DimensionsLabel = uilabel(app.GridLayout_2);
+            app.DimensionsLabel.BackgroundColor = [0.9412 0.9412 0.9412];
+            app.DimensionsLabel.FontName = 'Arial Black';
+            app.DimensionsLabel.FontSize = 20;
+            app.DimensionsLabel.FontWeight = 'bold';
+            app.DimensionsLabel.Layout.Row = 2;
+            app.DimensionsLabel.Layout.Column = 1;
+            app.DimensionsLabel.Text = '     Dimensions';
+
+            % Create Panel_12
+            app.Panel_12 = uipanel(app.GridLayout_2);
+            app.Panel_12.Layout.Row = 2;
+            app.Panel_12.Layout.Column = 2;
+
+            % Create latedit
+            app.latedit = uieditfield(app.Panel_12, 'text');
+            app.latedit.HorizontalAlignment = 'center';
+            app.latedit.FontName = 'Arial Black';
+            app.latedit.FontSize = 15;
+            app.latedit.FontWeight = 'bold';
+            app.latedit.Tooltip = {'Enter X-Axis Here'};
+            app.latedit.Position = [105 65 160 39];
+            app.latedit.Value = '-9.6863';
+
+            % Create LatitudeLabel
+            app.LatitudeLabel = uilabel(app.Panel_12);
+            app.LatitudeLabel.HorizontalAlignment = 'center';
+            app.LatitudeLabel.FontName = 'Arial Black';
+            app.LatitudeLabel.FontSize = 18;
+            app.LatitudeLabel.FontWeight = 'bold';
+            app.LatitudeLabel.Position = [9 73 87 28];
+            app.LatitudeLabel.Text = 'Latitude';
+
+            % Create xl_3
+            app.xl_3 = uilabel(app.Panel_12);
+            app.xl_3.HorizontalAlignment = 'center';
+            app.xl_3.FontName = 'Arial';
+            app.xl_3.FontSize = 13;
+            app.xl_3.Position = [105 16 410 40];
+            app.xl_3.Text = {'Center of 1km fire pixel but not necessarily the actual location '; 'of the fire as one or more fires can be detected within the 1km pixel.'};
+
+            % Create LongitudeLabel
+            app.LongitudeLabel = uilabel(app.Panel_12);
+            app.LongitudeLabel.HorizontalAlignment = 'center';
+            app.LongitudeLabel.FontName = 'Arial Black';
+            app.LongitudeLabel.FontSize = 18;
+            app.LongitudeLabel.FontWeight = 'bold';
+            app.LongitudeLabel.Position = [321 71 104 28];
+            app.LongitudeLabel.Text = 'Longitude';
+
+            % Create laonedit
+            app.laonedit = uieditfield(app.Panel_12, 'text');
+            app.laonedit.HorizontalAlignment = 'center';
+            app.laonedit.FontName = 'Arial Black';
+            app.laonedit.FontSize = 15;
+            app.laonedit.FontWeight = 'bold';
+            app.laonedit.Tooltip = {'Enter Y-Axis Here'};
+            app.laonedit.Position = [433 66 160 39];
+            app.laonedit.Value = '149.5227';
+
+            % Create Label_20
+            app.Label_20 = uilabel(app.Panel_12);
+            app.Label_20.BackgroundColor = [0.149 0.149 0.149];
+            app.Label_20.Position = [310 59 2 49];
+            app.Label_20.Text = '';
+
+            % Create MoreDetailsLabel
+            app.MoreDetailsLabel = uilabel(app.GridLayout_2);
+            app.MoreDetailsLabel.BackgroundColor = [0.9412 0.9412 0.9412];
+            app.MoreDetailsLabel.FontName = 'Arial Black';
+            app.MoreDetailsLabel.FontSize = 20;
+            app.MoreDetailsLabel.FontWeight = 'bold';
+            app.MoreDetailsLabel.Layout.Row = 5;
+            app.MoreDetailsLabel.Layout.Column = 1;
+            app.MoreDetailsLabel.Text = '    More Details';
+
+            % Create Panel_9
+            app.Panel_9 = uipanel(app.GridLayout_2);
+            app.Panel_9.Layout.Row = 5;
+            app.Panel_9.Layout.Column = 2;
+
+            % Create SatelliteLabel
+            app.SatelliteLabel = uilabel(app.Panel_9);
+            app.SatelliteLabel.HorizontalAlignment = 'center';
+            app.SatelliteLabel.FontName = 'Arial Black';
+            app.SatelliteLabel.FontSize = 18;
+            app.SatelliteLabel.FontWeight = 'bold';
+            app.SatelliteLabel.Position = [20 64 88 28];
+            app.SatelliteLabel.Text = 'Satellite';
+
+            % Create xl_2
+            app.xl_2 = uilabel(app.Panel_9);
+            app.xl_2.HorizontalAlignment = 'center';
+            app.xl_2.FontName = 'Arial';
+            app.xl_2.FontSize = 13;
+            app.xl_2.Position = [60 25 216 23];
+            app.xl_2.Text = 'Choose Satellite Type Aqua or Terra';
+
+            % Create Label_15
+            app.Label_15 = uilabel(app.Panel_9);
+            app.Label_15.BackgroundColor = [0.149 0.149 0.149];
+            app.Label_15.Position = [310 13 2 96];
+            app.Label_15.Text = '';
+
+            % Create sdd
+            app.sdd = uidropdown(app.Panel_9);
+            app.sdd.Items = {'Terra', 'Aqua'};
+            app.sdd.Tooltip = {'Choose Day From Here'};
+            app.sdd.FontName = 'Arial Black';
+            app.sdd.FontSize = 15;
+            app.sdd.FontWeight = 'bold';
+            app.sdd.Position = [116 64 160 26];
+            app.sdd.Value = 'Terra';
+
+            % Create timedit
+            app.timedit = uieditfield(app.Panel_9, 'text');
+            app.timedit.HorizontalAlignment = 'center';
+            app.timedit.FontName = 'Arial Black';
+            app.timedit.FontSize = 15;
+            app.timedit.FontWeight = 'bold';
+            app.timedit.Tooltip = {'Enter Rain Here'};
+            app.timedit.Position = [454 67 150 30];
+            app.timedit.Value = '13';
+
+            % Create AcqTimeLabel_2
+            app.AcqTimeLabel_2 = uilabel(app.Panel_9);
+            app.AcqTimeLabel_2.HorizontalAlignment = 'right';
+            app.AcqTimeLabel_2.FontName = 'Arial Black';
+            app.AcqTimeLabel_2.FontSize = 20;
+            app.AcqTimeLabel_2.FontWeight = 'bold';
+            app.AcqTimeLabel_2.Position = [321 68 115 31];
+            app.AcqTimeLabel_2.Text = 'Acq. Time';
+
+            % Create DayNightLabel
+            app.DayNightLabel = uilabel(app.Panel_9);
+            app.DayNightLabel.HorizontalAlignment = 'center';
+            app.DayNightLabel.FontName = 'Arial Black';
+            app.DayNightLabel.FontSize = 18;
+            app.DayNightLabel.FontWeight = 'bold';
+            app.DayNightLabel.Position = [329 25 113 28];
+            app.DayNightLabel.Text = 'Day / Night';
+
+            % Create tdd
+            app.tdd = uidropdown(app.Panel_9);
+            app.tdd.Items = {'Day', 'Night'};
+            app.tdd.Tooltip = {'Choose Day From Here'};
+            app.tdd.FontName = 'Arial Black';
+            app.tdd.FontSize = 15;
+            app.tdd.FontWeight = 'bold';
+            app.tdd.Position = [463 25 119 26];
+            app.tdd.Value = 'Day';
+
+            % Create StatusBarLabel
+            app.StatusBarLabel = uilabel(app.ChaseTheFireUIFigure);
+            app.StatusBarLabel.BackgroundColor = [0.8 0.8 0.8];
+            app.StatusBarLabel.FontName = 'Arial';
+            app.StatusBarLabel.FontWeight = 'bold';
+            app.StatusBarLabel.Position = [2 4 200 27];
+            app.StatusBarLabel.Text = '      StatusBar';
+
+            % Create ChasersAllRightsReservedLabel
+            app.ChasersAllRightsReservedLabel = uilabel(app.ChaseTheFireUIFigure);
+            app.ChasersAllRightsReservedLabel.BackgroundColor = [0.8 0.8 0.8];
+            app.ChasersAllRightsReservedLabel.HorizontalAlignment = 'center';
+            app.ChasersAllRightsReservedLabel.FontName = 'Comic Sans MS';
+            app.ChasersAllRightsReservedLabel.FontWeight = 'bold';
+            app.ChasersAllRightsReservedLabel.Position = [202 4 692 27];
+            app.ChasersAllRightsReservedLabel.Text = '               © 2020 Chasers All Rights Reserved';
+
+            % Create DateLabel
+            app.DateLabel = uilabel(app.ChaseTheFireUIFigure);
+            app.DateLabel.BackgroundColor = [0.8 0.8 0.8];
+            app.DateLabel.HorizontalAlignment = 'right';
+            app.DateLabel.FontName = 'Arial';
+            app.DateLabel.FontWeight = 'bold';
+            app.DateLabel.Position = [892 4 471 27];
+            app.DateLabel.Text = 'Date : ';
+
+            % Create Label_10
+            app.Label_10 = uilabel(app.ChaseTheFireUIFigure);
+            app.Label_10.BackgroundColor = [0.8 0.8 0.8];
+            app.Label_10.FontName = 'Arial';
+            app.Label_10.FontWeight = 'bold';
+            app.Label_10.Position = [1363 4 179 27];
+            app.Label_10.Text = '14-5-2020 ';
+
+            % Create Image
+            app.Image = uiimage(app.ChaseTheFireUIFigure);
+            app.Image.ScaleMethod = 'fill';
+            app.Image.Tooltip = {'Chaseres'};
+            app.Image.Position = [1488 -3 60 41];
+            app.Image.ImageSource = 'logo.png';
+
+            % Show the figure after all components are created
+            app.ChaseTheFireUIFigure.Visible = 'on';
+        end
+    end
+
+    % App creation and deletion
+    methods (Access = public)
+
+        % Construct app
+        function app = app1
+
+            % Create UIFigure and components
+            createComponents(app)
+
+            % Register the app with App Designer
+            registerApp(app, app.ChaseTheFireUIFigure)
+
+            % Execute the startup function
+            runStartupFcn(app, @startupFcn)
+
+            if nargout == 0
+                clear app
+            end
+        end
+
+        % Code that executes before app deletion
+        function delete(app)
+
+            % Delete UIFigure when app is deleted
+            delete(app.ChaseTheFireUIFigure)
+        end
+    end
+end
