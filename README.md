@@ -15,7 +15,6 @@
 ## Technologies:
 
 
-
 * Python (3.9)
 * Sklearn library
 * Numpy library
@@ -24,10 +23,13 @@
 * Seaborn library
 * joblib library
 *  SYS library
+* MATLAB 
+  1. GUI
+  1. Statistics & Machine Learning Toolbox
 *  PyQt5
-  1. QtWidgets
-  1. QtCore
-  1. QtGui
+   1. QtWidgets
+   1. QtCore
+   1. QtGui
 
 ## Summary:
 
